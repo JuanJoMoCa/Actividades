@@ -1,0 +1,309 @@
+/* ============================================================
+   ESTILOS PARA LA ACTIVIDAD LECTURA (NIVEL INTERMEDIO)
+   Nota: No borrar los IDs porque se rompe el diseño
+   ============================================================ */
+
+:root {
+  --verde-fondo: #17c95d;
+  --texto-claro: #dfe7f0;
+  --texto-oscuro: #3a2a1c;
+
+  --fuente: "Pixelify Sans", "Silkscreen", "Courier New", monospace;
+  --tam-texto: 20px;
+  --interlineado: 28px;
+
+  /* Variables del timer */
+  --timer-slice: 4;
+  --timer-borde: 10px;
+}
+
+/* Reseteo general */
+* {
+  box-sizing: border-box;
+  margin: 0px; /* Siempre poner los px aunque sea 0 */
+  padding: 0px;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--verde-fondo);
+}
+
+body {
+  /* En el HTML original esto centraba, ahora lo hará el body-master-container */
+  font-family: var(--fuente);
+}
+
+/* Contenedor maestro que agregamos en el HTML */
+div#body-master-container.master-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row; /* Redundante pero seguro */
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================
+   ESCENARIO PRINCIPAL
+   ========================================== */
+div#stage.stage.stage-container-wrapper {
+  position: relative;
+  flex-shrink: 0; /* En vez de flex: none */
+  flex-grow: 0;
+  width: 978px;
+  height: 407px;
+  background-color: var(--verde-fondo);
+  transform-origin: center center;
+  display: block;
+}
+
+/* ==========================================
+   TÍTULO DE LA ACTIVIDAD
+   ========================================== */
+div#stage div#header-title-wrapper.titulo.header-wrapper {
+  position: absolute;
+  left: 220px;
+  top: 5px;
+  width: 582px;
+  height: 36px;
+  
+  /* Desglose completo del background */
+  background-image: url("res/imagenes/Group 9.png");
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+div.h1-container h1#texto-titulo-principal.h1-text.title-text {
+  font-family: var(--fuente);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--texto-claro);
+  white-space: nowrap;
+  text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.35);
+  margin: 0px;
+}
+
+/* ==========================================
+   BOTÓN CERRAR
+   ========================================== */
+div#btn-cerrar-wrapper.close-btn-wrapper button#btn-cerrar-actividad.cerrar.btn-cerrar-estilo {
+  position: absolute;
+  left: 908px;
+  top: 8px;
+  width: 44px;
+  height: 30px;
+  border-width: 0px;
+  
+  /* Desglose del background */
+  background-image: url("res/imagenes/tile_0004.png");
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  
+  cursor: pointer;
+  display: inline-block;
+}
+
+div#btn-cerrar-wrapper.close-btn-wrapper button#btn-cerrar-actividad.cerrar.btn-cerrar-estilo:hover {
+  filter: brightness(1.1);
+}
+
+div#btn-cerrar-wrapper.close-btn-wrapper button#btn-cerrar-actividad.cerrar.btn-cerrar-estilo:focus-visible {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: #ffffff;
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   PANEL IZQUIERDO (TEXTO DE LECTURA)
+   ========================================== */
+div#panel-izquierdo-lectura.lectura.panel-izquierdo-wrapper {
+  position: absolute;
+  left: 12px;
+  top: 50px;
+  width: 518px;
+  height: 352px;
+  background-image: url("res/imagenes/Group 10.png");
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: block;
+}
+
+div#texto-lectura-container.lectura-texto.texto-wrapper {
+  position: absolute;
+  left: 56px;  /* 68px en el lienzo */
+  top: 46px;   /* 96px en el lienzo */
+  width: 420px;
+  color: var(--texto-claro);
+  font-size: var(--tam-texto);
+  line-height: var(--interlineado);
+}
+
+p#titulo-lectura-parrafo.lectura-titulo.titulo-parrafo-texto {
+  margin-bottom: var(--interlineado);
+  display: block;
+}
+
+p#cuerpo-lectura-parrafo.lectura-cuerpo.cuerpo-parrafo-texto {
+  display: block;
+}
+
+/* ==========================================
+   ESQUINAS DEL PANEL IZQUIERDO
+   ========================================== */
+div#esquinas-wrapper-container.esquinas-container span.esquina {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: url("res/imagenes/tile_0134.png");
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+/* Usando IDs en lugar de las clases combinadas .tl, .tr... */
+span#esquina-sup-izq.top-left-corner { left: 30px; top: 8px; transform: rotate(0deg); }
+span#esquina-sup-der.top-right-corner { right: 30px; top: 12px; transform: rotate(90deg); }
+span#esquina-inf-der.bottom-right-corner { right: 10px; bottom: 14px; transform: rotate(180deg); }
+span#esquina-inf-izq.bottom-left-corner { left: 10px; bottom: 10px; transform: rotate(270deg); }
+
+/* ==========================================
+   PANEL DERECHO (PREGUNTA)
+   ========================================== */
+div#panel-derecho-pregunta.pregunta.panel-derecho-wrapper {
+  position: absolute;
+  left: 537px;
+  top: 52px;
+  width: 441px;
+  height: 355px;
+  background-image: url("res/imagenes/Group 11.png");
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: var(--texto-oscuro);
+  display: block;
+}
+
+/* TEMPORIZADOR */
+div#timer-wrapper-container.timer-wrapper div#timer.timer.timer-box {
+  position: absolute;
+  left: 178px;
+  top: 5px;
+  width: 78px;
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--texto-claro);
+  
+  /* El border-image de una línea es muy confuso, lo separamos */
+  border-style: solid;
+  border-width: var(--timer-borde);
+  border-image-source: url("res/imagenes/tile_0040.png");
+  border-image-slice: var(--timer-slice) fill;
+  border-image-width: var(--timer-borde);
+  border-image-repeat: stretch;
+}
+
+/* TEXTO PREGUNTA */
+div#pregunta-texto-wrapper p#texto-de-la-pregunta.pregunta-texto.texto-pregunta-estilo {
+  position: absolute;
+  left: 25px;
+  top: 64px;
+  width: 380px;
+  font-size: var(--tam-texto);
+  line-height: var(--interlineado);
+  display: block;
+}
+
+/* ==========================================
+   LISTA DE OPCIONES
+   ========================================== */
+ul#lista-ul-opciones.opciones.lista-opciones-ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}
+
+li.list-item-opcion {
+  position: absolute;
+  left: 22px;
+  height: 52px;
+  /* El flex ahora vive en el wrapper de adentro */
+}
+
+/* El wrapper interno que creamos en el HTML para alienar flex */
+li.list-item-opcion div.opcion-inner-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 17px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Sustitución del nth-child() por IDs individuales directos */
+li#item-opcion-a.list-item-opcion { top: 162px; }
+li#item-opcion-b.list-item-opcion { top: 224px; }
+li#item-opcion-c.list-item-opcion { top: 287px; }
+
+/* Botones Hexagonales */
+li.list-item-opcion div.btn-hex-wrapper button#btn-hex-a.hex,
+li.list-item-opcion div.btn-hex-wrapper button#btn-hex-b.hex,
+li.list-item-opcion div.btn-hex-wrapper button#btn-hex-c.hex {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 52px;
+  height: 52px;
+  border-width: 0px;
+  
+  background-image: url("res/imagenes/tile_0065.png");
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  
+  font-family: var(--fuente);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  cursor: pointer;
+  display: block;
+}
+
+li.list-item-opcion div.btn-hex-wrapper button.hex:hover {
+  filter: brightness(1.08);
+}
+
+li.list-item-opcion div.btn-hex-wrapper button.hex:focus-visible {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: var(--texto-oscuro);
+  outline-offset: 2px;
+}
+
+/* Texto de cada opción */
+div.span-texto-wrapper span.opcion-texto.texto-de-opcion {
+  font-size: var(--tam-texto);
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-block;
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Actividad Lectura - El cuerpo humano</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Contenedor maestro absoluto para controlar el body -->
+    <div id="body-master-container" class="master-wrapper">
+
+        <!-- Escenario de tamaño fijo  -->
+        <div id="stage" class="stage stage-container-wrapper">
+
+            <!-- Título -->
+            <div id="header-title-wrapper" class="titulo header-wrapper">
+                <div class="h1-container">
+                    <h1 id="texto-titulo-principal" class="h1-text title-text">ACTIVIDAD LECTURA - EL CUERPO HUMANO</h1>
+                </div>
+            </div>
+
+            <!-- Botón cerrar (Envuelto en un div por si necesitamos centrarlo después) -->
+            <div id="btn-cerrar-wrapper" class="close-btn-wrapper">
+                <button id="btn-cerrar-actividad" class="cerrar btn-cerrar-estilo" type="button" aria-label="Cerrar"></button>
+            </div>
+
+            <!-- Panel izquierdo: lectura-->
+            <div id="panel-izquierdo-lectura" class="lectura panel-izquierdo-wrapper">
+                
+                <!-- Contenedor para agrupar las esquinas -->
+                <div id="esquinas-wrapper-container" class="esquinas-container">
+                    <span id="esquina-sup-izq" class="esquina tl top-left-corner"></span>
+                    <span id="esquina-sup-der" class="esquina tr top-right-corner"></span>
+                    <span id="esquina-inf-izq" class="esquina bl bottom-left-corner"></span>
+                    <span id="esquina-inf-der" class="esquina br bottom-right-corner"></span>
+                </div>
+
+                <!-- Wrappers individuales para cada párrafo -->
+                <div id="texto-lectura-container" class="lectura-texto texto-wrapper">
+                    <div class="parrafo-titulo-wrapper">
+                        <p id="titulo-lectura-parrafo" class="lectura-titulo titulo-parrafo-texto">Función del sistema circulatorio</p>
+                    </div>
+                    <div class="parrafo-cuerpo-wrapper">
+                        <p id="cuerpo-lectura-parrafo" class="lectura-cuerpo cuerpo-parrafo-texto">“El sistema circulatorio está encargado de bombear, transportar y distribuir la sangre y sustancias, como oxígeno, hormonas y nutrientes por todo el cuerpo.”</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel derecho: pregunta -->
+            <div id="panel-derecho-pregunta" class="pregunta panel-derecho-wrapper">
+                
+                <div id="timer-wrapper-container" class="timer-wrapper">
+                    <div class="timer timer-box" id="timer">0:30</div>
+                </div>
+
+                <div id="pregunta-texto-wrapper" class="pregunta-texto-container">
+                    <p id="texto-de-la-pregunta" class="pregunta-texto texto-pregunta-estilo">¿Qué partes del cuerpo crees que formen parte del sistema circulatorio?</p>
+                </div>
+
+                <!-- Contenedor extra para la lista de opciones -->
+                <div id="lista-opciones-wrapper" class="opciones-container">
+                    <ul id="lista-ul-opciones" class="opciones lista-opciones-ul">
+                        
+                        <!-- Opción A -->
+                        <li id="item-opcion-a" class="opcion list-item-opcion">
+                            <!-- Wrapper interno para el contenido del <li> -->
+                            <div class="opcion-inner-wrapper">
+                                <div class="btn-hex-wrapper">
+                                    <button id="btn-hex-a" type="button" class="hex btn-hex-style" data-opcion="A">A</button>
+                                </div>
+                                <div class="span-texto-wrapper">
+                                    <span id="texto-opcion-a" class="opcion-texto texto-de-opcion">Corazón, venas, arterias.</span>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <!-- Opción B -->
+                        <li id="item-opcion-b" class="opcion list-item-opcion">
+                            <div class="opcion-inner-wrapper">
+                                <div class="btn-hex-wrapper">
+                                    <button id="btn-hex-b" type="button" class="hex btn-hex-style" data-opcion="B">B</button>
+                                </div>
+                                <div class="span-texto-wrapper">
+                                    <span id="texto-opcion-b" class="opcion-texto texto-de-opcion">Riñones, pies, cabeza.</span>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <!-- Opción C -->
+                        <li id="item-opcion-c" class="opcion list-item-opcion">
+                            <div class="opcion-inner-wrapper">
+                                <div class="btn-hex-wrapper">
+                                    <button id="btn-hex-c" type="button" class="hex btn-hex-style" data-opcion="C">C</button>
+                                </div>
+                                <div class="span-texto-wrapper">
+                                    <span id="texto-opcion-c" class="opcion-texto texto-de-opcion">Cabeza, cara, hombros.</span>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div> <!-- Fin Panel derecho -->
+
+        </div> <!-- Fin del stage -->
+
+    </div> <!-- Fin body-master-container -->
+
+    <script src="script.js"></script>
+</body>
+</html>

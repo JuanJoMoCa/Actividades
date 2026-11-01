@@ -1,0 +1,392 @@
+/* Variables del proyecto */
+:root {
+    --fondo-azul: #2185D0;
+    --texto: #FFFFFF;
+
+    /* Medidas responsivas */
+    --alto-header: clamp(52px, 12dvh, 80px);
+    --ancho-barra: 50px;
+    --ancho-etiqueta: clamp(40px, 8vw, 64px);
+    --ancho-tarjeta: 130px;
+    --alto-tarjeta: 190px;
+    --padding-fila: 20px;
+}
+
+/* Reset básico para evitar broncas de márgenes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none; 
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--fondo-azul);
+    color: var(--texto);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;  /* Respaldo */
+    height: 100dvh; /* Para que en cel no estorbe la barra del navegador */
+    overflow: hidden;
+    position: relative; /* Para que la barra lateral se guíe de aquí */
+}
+
+/* Contenedor principal de la app */
+div#app {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Ocultar las barras de scroll feas del navegador */
+::-webkit-scrollbar { display: none; }
+* { scrollbar-width: none; }
+
+/* Evitar que se arrastren las imágenes como fantasmas */
+img { 
+    -webkit-user-drag: none; 
+    user-select: none; 
+}
+
+/* Encabezado */
+div#encabezado.barra-superior {
+    background-color: var(--fondo-azul);
+    padding: 6px 10px;
+    height: var(--alto-header);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    z-index: 5;
+    width: 100%;
+}
+
+div#encabezado .caja-logo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+img#logo-principal.logo {
+    height: 100%;
+    max-height: 60px;
+    object-fit: contain;
+    display: block; 
+}
+
+/* Zona donde va todo el contenido de categorías */
+div#scroll-principal.zona-categorias {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;          
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: var(--ancho-barra);
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    background-image: url('res/img/FODNO.png');
+    background-repeat: repeat;
+    width: 100%;
+}
+
+/* Clase que le pone JS cuando arrastramos el fondo */
+div#scroll-principal.zona-categorias.arrastrando { 
+    cursor: grabbing; 
+}
+
+/* Filas de cada categoría Ciencias, Tec, etc */
+div#scroll-principal .fila-categoria {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    height: auto;
+    min-height: max(calc(var(--alto-tarjeta) + var(--padding-fila) * 2), 40dvh);
+    position: relative;
+    width: 100%;
+}
+
+/* Colores de fondo para cada fila */
+div#sec-cien.ciencias { background-color: rgba(82, 208, 83, 0.8); }
+div#sec-tec.tecnologia { background-color: rgba(74, 144, 226, 0.8); }
+
+/* Etiquetas laterales de las filas */
+div#scroll-principal .fila-categoria .caja-etiqueta {
+    display: flex;
+    height: 100%;
+}
+
+div#scroll-principal .fila-categoria .caja-etiqueta div.etiqueta {
+    width: var(--ancho-etiqueta);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 8px 0;
+    font-weight: bold;
+    font-size: clamp(0.75rem, 3.2vw, 1.2rem);
+    line-height: 1.1;
+    text-shadow: 2px 2px 0 #000;
+    z-index: 2;
+    background-color: rgba(0,0,0,0.1);
+}
+
+div.etiqueta span.letra {
+    display: block;
+}
+
+/* Contenedor del carrusel scrolleable */
+.contenedor-carrusel {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.contenedor-carrusel div.carrusel {
+    flex: 1;
+    min-width: 0; 
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 4px;
+}
+
+.caja-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+div.carrusel div.pista-carrusel {
+    flex: 1;
+    min-width: 0; 
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: var(--padding-fila) 0;
+    cursor: grab;
+    overscroll-behavior-x: contain;
+}
+
+div.carrusel div.pista-carrusel.arrastrando { 
+    cursor: grabbing; 
+}
+
+ul.lista-tarjetas {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 16px;
+    padding: 0 12px;
+    width: max-content;
+    margin: 0;
+}
+
+ul.lista-tarjetas li.item-carrusel { 
+    flex-shrink: 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tarjetas de actividades */
+div.tarjeta {
+    width: var(--ancho-tarjeta);
+    height: var(--alto-tarjeta);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-align: center;
+    padding: 10px;
+}
+
+@media (hover: hover) {
+    div.tarjeta:hover { 
+        transform: scale(1.05); 
+    }
+}
+
+/* Fondos de tarjeta dependiendo la sección */
+#sec-cien .tarjeta { background-image: url('res/img/Group 1.png'); }
+#sec-tec .tarjeta { background-image: url('res/img/Group 4.png'); }
+
+/* Contenido dentro de la tarjeta Icono y textos */
+div.tarjeta div.caja-icono {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+div.tarjeta div.caja-icono img.icono,
+div.tarjeta div.caja-icono div.icono {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+div.tarjeta div.caja-icono div.icono.placeholder { background: #ddd; }
+
+div.tarjeta div.caja-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+span.tipo-actividad { 
+    font-size: 0.85rem; 
+    font-weight: bold; 
+    text-shadow: 1px 1px 0 #000; 
+}
+span.nombre-actividad { 
+    font-size: 0.75rem; 
+    margin-top: 5px; 
+    overflow-wrap: anywhere; 
+}
+
+/* Botones de navegación (Flechas del carrusel) */
+button.btn-nav {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button.btn-nav img { 
+    width: 30px; 
+    display: block;
+}
+
+button.btn-nav.btn-izq img { transform: rotate(180deg); }
+button.btn-nav.oculto { visibility: hidden; } 
+
+/* Barra de scroll lateral personalizada */
+div#scroll-lateral.barra-scroll.derecha {
+    position: absolute;
+    right: 0;
+    top: var(--alto-header);
+    bottom: 0;
+    width: var(--ancho-barra);
+    background-color: #2c2c2c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 20;
+    border-left: 2px solid rgba(255,255,255,0.1);
+}
+
+.caja-btn-vertical {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+img.flecha-scroll.arriba { transform: rotate(-90deg); }
+img.flecha-scroll.abajo { transform: rotate(90deg); }
+
+.caja-pista-vertical {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+div#pista-lateral.pista-vertical {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin: 10px 0;
+    touch-action: none;
+}
+
+img#agarradera-scroll.agarradera {
+    width: 20px;
+    cursor: grab;
+    position: absolute;
+    top: 0;
+    touch-action: none;
+    display: block;
+}
+
+img#agarradera-scroll.agarradera:active { 
+    cursor: grabbing; 
+}
+
+/* Adaptabilidad (Media Queries) */
+
+/* Celulares normales */
+@media (max-width: 768px) {
+    :root {
+        --ancho-barra: 40px;
+        --ancho-etiqueta: clamp(34px, 9vw, 48px);
+        --ancho-tarjeta: 110px;
+        --alto-tarjeta: 160px;
+        --padding-fila: 14px;
+    }
+
+    ul.lista-tarjetas { gap: 12px; padding: 0 8px; }
+    
+    div.tarjeta div.caja-icono img.icono,
+    div.tarjeta div.caja-icono div.icono { 
+        width: 35px; 
+        height: 35px; 
+    }
+    
+    span.tipo-actividad { font-size: 0.75rem; }
+    span.nombre-actividad { font-size: 0.65rem; }
+    
+    button.btn-nav img { width: 22px; }
+    button.btn-nav { padding: 2px; }
+    
+    div#scroll-principal .fila-categoria .caja-etiqueta div.etiqueta { 
+        text-shadow: 1px 1px 0 #000; 
+    }
+}
+
+/* Celulares acostados (poca altura) */
+@media (max-height: 500px) {
+    :root {
+        --ancho-tarjeta: 96px;
+        --alto-tarjeta: 140px;
+        --padding-fila: 10px;
+    }
+    
+    div#scroll-principal .fila-categoria { 
+        min-height: calc(var(--alto-tarjeta) + var(--padding-fila) * 2 + 16px); 
+    }
+    
+    div#scroll-principal .fila-categoria .caja-etiqueta div.etiqueta { 
+        font-size: 0.65rem; 
+    }
+}

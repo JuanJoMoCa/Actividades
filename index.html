@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Repositorio STEM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Contenedor principal de la app -->
+    <div id="app">
+
+        <!-- Encabezado -->
+        <div id="encabezado" class="barra-superior">
+            <div class="caja-logo">
+                <img src="res/img/LOGO.png" alt="Logo X-TEM" class="logo" id="logo-principal">
+            </div>
+        </div>
+
+        <!-- Zona de contenido -->
+        <div id="scroll-principal" class="zona-categorias">
+            
+            <!-- SECCIÓN CIENCIAS -->
+            <div id="sec-cien" class="fila-categoria ciencias">
+                
+                <div class="caja-etiqueta">
+                    <div class="etiqueta" aria-label="Ciencias" id="etiqueta-cien">
+                        <span class="letra">C</span><span class="letra">I</span><span class="letra">E</span><span class="letra">N</span><span class="letra">C</span><span class="letra">I</span><span class="letra">A</span><span class="letra">S</span>
+                    </div>
+                </div>
+
+                <div class="contenedor-carrusel">
+                    <div class="carrusel" id="carrusel-cien">
+                        
+                        <div class="caja-btn">
+                            <button type="button" class="btn-nav btn-izq" id="btn-izq-cien" aria-label="Anterior">
+                                <img src="res/img/flecha.png" alt="" draggable="false">
+                            </button>
+                        </div>
+
+                        <div class="pista-carrusel arrastrable" id="pista-cien">
+                            <ul class="lista-tarjetas" id="lista-cien">
+                                
+                                <li class="item-carrusel">
+                                    <div class="tarjeta" id="tarjeta-c1">
+                                        <div class="caja-icono">
+                                            <img src="res/img/LOGO.png" class="icono" alt="Icono" draggable="false">
+                                        </div>
+                                        <div class="caja-texto">
+                                            <span class="tipo-actividad">ACTIVIDAD</span>
+                                            <span class="nombre-actividad">&lt;LECTURA&gt;</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <li class="item-carrusel">
+                                    <div class="tarjeta" id="tarjeta-c2">
+                                        <div class="caja-icono">
+                                            <div class="icono placeholder"></div>
+                                        </div>
+                                        <div class="caja-texto">
+                                            <span class="tipo-actividad">ACTIVIDAD</span>
+                                            <span class="nombre-actividad">&lt;EXP 1&gt;</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <li class="item-carrusel">
+                                    <div class="tarjeta" id="tarjeta-c3">
+                                        <div class="caja-icono">
+                                            <div class="icono placeholder"></div>
+                                        </div>
+                                        <div class="caja-texto">
+                                            <span class="tipo-actividad">ACTIVIDAD</span>
+                                            <span class="nombre-actividad">&lt;EXP 2&gt;</span>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div class="caja-btn">
+                            <button type="button" class="btn-nav btn-der" id="btn-der-cien" aria-label="Siguiente">
+                                <img src="res/img/flecha.png" alt="" draggable="false">
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN TECNOLOGÍA -->
+            <div id="sec-tec" class="fila-categoria tecnologia">
+                
+                <div class="caja-etiqueta">
+                    <div class="etiqueta" aria-label="Tecnología" id="etiqueta-tec">
+                        <span class="letra">T</span><span class="letra">E</span><span class="letra">C</span><span class="letra">N</span><span class="letra">O</span><span class="letra">L</span><span class="letra">O</span><span class="letra">G</span><span class="letra">Í</span><span class="letra">A</span>
+                    </div>
+                </div>
+
+                <div class="contenedor-carrusel">
+                    <div class="carrusel" id="carrusel-tec">
+                        
+                        <div class="caja-btn">
+                            <button type="button" class="btn-nav btn-izq" id="btn-izq-tec" aria-label="Anterior">
+                                <img src="res/img/flecha.png" alt="" draggable="false">
+                            </button>
+                        </div>
+
+                        <div class="pista-carrusel arrastrable" id="pista-tec">
+                            <ul class="lista-tarjetas" id="lista-tec">
+                                
+                                <li class="item-carrusel">
+                                    <div class="tarjeta" id="tarjeta-t1">
+                                        <div class="caja-icono">
+                                            <img src="res/img/LOGO.png" class="icono" alt="Icono" draggable="false">
+                                        </div>
+                                        <div class="caja-texto">
+                                            <span class="tipo-actividad">ACTIVIDAD</span>
+                                            <span class="nombre-actividad">&lt;TRIVIA&gt;</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <li class="item-carrusel">
+                                    <div class="tarjeta" id="tarjeta-t2">
+                                        <div class="caja-icono">
+                                            <div class="icono placeholder"></div>
+                                        </div>
+                                        <div class="caja-texto">
+                                            <span class="tipo-actividad">ACTIVIDAD</span>
+                                            <span class="nombre-actividad">&lt;LÓGICA&gt;</span>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div class="caja-btn">
+                            <button type="button" class="btn-nav btn-der" id="btn-der-tec" aria-label="Siguiente">
+                                <img src="res/img/flecha.png" alt="" draggable="false">
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BARRA DE SCROLL LATERAL -->
+        <div id="scroll-lateral" class="barra-scroll derecha">
+            <div class="caja-btn-vertical">
+                <button type="button" class="btn-vertical btn-arriba" id="btn-arriba" aria-label="Arriba">
+                    <img src="res/img/flecha.png" alt="" class="flecha-scroll arriba" draggable="false">
+                </button>
+            </div>
+            
+            <div class="caja-pista-vertical">
+                <div class="pista-vertical" id="pista-lateral">
+                    <img src="res/img/barra.png" alt="" class="agarradera" id="agarradera-scroll" draggable="false">
+                </div>
+            </div>
+            
+            <div class="caja-btn-vertical">
+                <button type="button" class="btn-vertical btn-abajo" id="btn-abajo" aria-label="Abajo">
+                    <img src="res/img/flecha.png" alt="" class="flecha-scroll abajo" draggable="false">
+                </button>
+            </div>
+        </div>
+
+    </div> 
+
+    <script src="script.js"></script>
+</body>
+</html>
